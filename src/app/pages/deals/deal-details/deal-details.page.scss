@@ -1,0 +1,31 @@
+.cover {
+	height: 250px;
+	width: 100%;
+	position: relative;
+	ion-img {
+		border-radius: none !important;
+		height: 250px !important;
+		width: 100% !important;
+		border: none !important;
+		object-fit: contain !important;
+	}
+}
+.info-content {
+	margin-top: 10px;
+	display: flex;
+    align-items: center;
+	gap: 5px;
+	ion-icon {
+		font-size: 18px;
+		margin-right: 8px;
+	}
+}
+.seller-content {
+	margin: 16px 0px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+	.seller-name {
+		margin: 0px 0px 20px 0px;
+	}
+}

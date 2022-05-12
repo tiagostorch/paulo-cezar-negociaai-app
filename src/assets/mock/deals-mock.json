@@ -1,0 +1,126 @@
+[
+	{
+		"id": 1,
+		"type": 2,
+		"value": 88.9,
+		"description": "Fone De Ouvido Pop Bluetooth P2 Branco Multilaser - PH247",
+		"tradeFor": "Teclado sem fio",
+		"location": {
+			"lat" : -23.6821604,
+			"lng" : -46.8754931,
+			"address" : "Rua de SP",
+			"city" : "São Paulo",
+			"state": "SP",
+			"zipCode" : "12345-000"
+		},
+		"urgency": {
+			"type": 1
+		},
+		"photos": [
+			{
+				"src": "https://m.media-amazon.com/images/I/81dSc5UmK3L._AC_SX679_.jpg"
+			},
+			{
+				"src": "https://m.media-amazon.com/images/I/81laBi1YrEL._AC_SX679_.jpg"
+			}
+		],
+		"owner": {
+			"id": 6,
+			"name": "Lucas"
+		}
+	}, 
+	{
+		"id": 2,
+		"type": 1,
+		"value": 80.0,
+		"description": "Kit Teclado Gamer Mouse Abnt2 Semi Mecânico Luminoso LED Rgb 2400dpi Laser Usb Óptico Pc Tv",
+		"tradeFor": null,
+		"location": {
+			"lat" : -23.6821604,
+			"lng" : -46.8754931,
+			"address" : "Rua de SP",
+			"city" : "São Paulo",
+			"state": "SP",
+			"zipCode" : "12345000"
+		},
+		"urgency": {
+			"type": 4,
+			"limitDate": "2022-06-02"
+		},
+		"photos": [
+			{
+				"src": "https://images-americanas.b2w.io/produtos/3327068584/imagens/kit-teclado-gamer-mouse-abnt2-semi-mecanico-luminoso-led-rgb-2400dpi-laser-usb-optico-pc-tv-ps4-m800-preto-luuk-young/3327068584_1_xlarge.jpg"
+			},
+			{
+				"src": "https://images-americanas.b2w.io/produtos/3327068584/imagens/kit-teclado-gamer-mouse-abnt2-semi-mecanico-luminoso-led-rgb-2400dpi-laser-usb-optico-pc-tv-ps4-m800-preto-luuk-young/3327068584_5_xlarge.jpg"
+			}
+		],
+		"owner": {
+			"id": 3,
+			"name": "João"
+		}
+	}, 
+	{
+		"id": 3,
+		"type": 3,
+		"value": 970.0,
+		"description": "Monitor LG Widescreen 24MP400-23.8, Preto",
+		"tradeFor": null,
+		"location": {
+			"lat" : -23.6821604,
+			"lng" : -46.8754931,
+			"address" : "Rua de SP",
+			"city" : "São Paulo",
+			"state": "SP",
+			"zipCode" : "12345000"
+		},
+		"urgency": {
+			"type": 2
+		},
+		"photos": [
+			{
+				"src": "https://m.media-amazon.com/images/I/61ckGfof1EL._AC_SX679_.jpg"
+			},
+			{
+				"src": "https://m.media-amazon.com/images/I/61Ja4t4vKwL._AC_SX679_.jpg"
+			}
+		],
+		"owner": {
+			"id": 4,
+			"name": "Maria"
+		}
+	},
+	{
+		"id": 4,
+		"type": 1,
+		"value": 800.0,
+		"description": "Cadeira Gamer Craft Preta e Branca Giratoria",
+		"tradeFor": "Monitor 21'",
+		"location": {
+			"lat" : -23.6821604,
+			"lng" : -46.8754931,
+			"address" : "Rua de SP",
+			"city" : "São Paulo",
+			"state": "SP",
+			"zipCode" : "12345000"
+		},
+		"urgency": {
+			"type": 3
+		},
+		"photos": [
+			{
+				"src": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Craft-Preta-e-Branca-2383-075355-1-zoom.jpg"
+			},
+			{
+				"src": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Craft-Preta-e-Branca-2383-075355-7-zoom.jpg"
+			},
+			{
+				"src": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Craft-Preta-e-Branca-2383-075355-6-zoom.jpg"
+			}
+		],
+		"owner": {
+			"id": 8,
+			"name": "Marco Antônio"
+		}
+	}
+]

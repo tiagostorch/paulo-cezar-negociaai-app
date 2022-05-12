@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Detalhes</ion-title>
+		<ion-buttons slot="end">
+			<ion-button class="header-badge" (click)="seeMessages()">
+				<ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ng-container *ngIf="deal">
+		<ion-slides pager="true" [options]="{ autoplay: { delay: 6000 }}">
+			<ion-slide *ngFor="let photo of deal.photos" (click)="seePhoto(photo.src)">
+				<div class="cover">
+					<ion-img src="{{convertFileSrc(photo.src)}}"></ion-img>
+				</div>
+			</ion-slide>
+		</ion-slides>
+		<div class="ion-padding">
+			<ion-label color="black" class="font-bold font-size-large ion-text-wrap">{{ deal.description }}</ion-label>
+			<div class="info-content font-normal font-size-small gray">
+				<ion-icon name="pricetag-outline" color="gray"></ion-icon>
+				{{ deal.typeDescription }}
+			</div>
+			<div class="info-content font-normal font-size-small gray">
+				<ion-icon [name]="deal.urgencyIcon" [color]="deal.urgencyIconColor"></ion-icon>
+				Urgência: {{ deal.urgencyDescription }} <span *ngIf="deal.urgencyDate">{{ deal.urgencyDate }}</span>
+			</div>
+			<div *ngIf="deal.tradeFor" class="info-content font-normal font-size-small gray">
+				<ion-icon name="swap-horizontal-outline" color="gray"></ion-icon>
+				Aceita trocar por <span class="font-bold">{{ deal.tradeFor }}</span>
+			</div>
+			<div *ngIf="deliveryFee" class="info-content font-normal font-size-small gray">
+				<ion-icon name="rocket-outline" color="gray"></ion-icon>
+				R${{ deliveryFee.value | number:'.2-2' }} de frete para {{ deliveryFee.to?.zipCode }}
+			</div>
+			<p class="font-normal font-size-xxlarge black">R$ {{ deal.value | number:'.2-2' }}</p>
+			
+			<div class="seller-content">
+				<p class="seller-name font-normal font-size-medium dark">Dados do vendedor</p>
+				<div class="info-content font-normal font-size-small dark">
+					<ion-icon name="person-outline" color="dark"></ion-icon>
+					{{ deal.owner?.name }}
+				</div>
+				<div class="info-content font-normal font-size-small dark">
+					<ion-icon name="location-outline" color="dark"></ion-icon>
+					{{ deal.location?.city }}
+				</div>
+				<ion-button *ngIf="!isOwner" fill="clear" expand="block" color="secondary" size="small" class="custom light-bg ion-margin-top" (click)="sendMessage()">
+					Enviar uma mensagem
+				</ion-button>
+			</div>
+		</div>
+		<ion-fab *ngIf="isOwner" vertical="bottom" horizontal="end" slot="fixed">
+			<ion-fab-button color="secondary" (click)="editDeal()">
+				<ion-icon name="create-outline"></ion-icon>
+			</ion-fab-button>
+		</ion-fab>
+	</ng-container>
+</ion-content>
+<ion-footer *ngIf="deal">
+	<ion-toolbar>
+		<ion-button *ngIf="!isOwner" expand="block" color="secondary" class="custom ion-margin" (click)="openModalBid()">
+			Fazer uma oferta
+		</ion-button>
+		<ion-button *ngIf="isOwner && bids" expand="block" [color]="deal.bidsButtonColor()" class="custom ion-margin" (click)="seeOffers()" [disabled]="!deal.hasBids">
+			{{ deal.bidsButtonDescription(bids) }}
+		</ion-button>
+	</ion-toolbar>
+</ion-footer>

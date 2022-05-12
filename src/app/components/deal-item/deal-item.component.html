@@ -1,0 +1,12 @@
+<ion-item button lines="none" detail="false">
+	<ion-thumbnail slot="start">
+		<ion-img [src]="convertFileSrc(deal.photo?.src)"></ion-img>
+	</ion-thumbnail>
+	<ion-label class="ion-text-wrap ion-margin-vertical">
+		<p class="font-normal font-size-small dark line-clamp-3">{{ deal.description }}</p>
+		<div class="price-content">
+			<span class="font-bold font-size-medium dark">R$ {{ deal.value | number:'.2-2' }}</span>
+			<ion-icon *ngIf="deal.tradeFor" name="swap-horizontal-outline" color="dark"></ion-icon>
+		</div>
+	</ion-label>
+</ion-item>

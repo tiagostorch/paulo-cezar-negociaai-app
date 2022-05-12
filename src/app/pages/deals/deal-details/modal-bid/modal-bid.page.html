@@ -1,0 +1,15 @@
+<ion-content>
+	<div class="ion-padding">
+		<ion-item mode="md" fill="outline">
+			<ion-label position="floating">Valor da oferta (R$) *</ion-label>
+			<ion-input type="tel" [(ngModel)]="bid.value" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ','}"></ion-input>
+		</ion-item>
+		<ion-item mode="md" fill="outline">
+			<ion-label position="floating">Observação (opcional)</ion-label>
+			<ion-input [(ngModel)]="bid.description" maxlength="200"></ion-input>
+		</ion-item>
+		<ion-button expand="block" color="secondary" class="custom ion-margin-vertical" (click)="sendBid()">
+			Enviar oferta
+		</ion-button>
+	</div>
+</ion-content>

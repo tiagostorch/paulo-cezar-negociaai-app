@@ -1,0 +1,19 @@
+{
+	"from": {
+		"lat" : -23.6821604,
+		"lng" : -46.8754931,
+		"address" : "Rua de Vila Madalena",
+		"city" : "São Paulo",
+		"state": "SP",
+		"zipCode" : "12345-000"
+	},
+	"to": {
+		"lat" : -23.6821604,
+		"lng" : -46.8754931,
+		"address" : "Avenida Paulista",
+		"city" : "São Paulo",
+		"state": "SP",
+		"zipCode" : "03579-000"
+	},
+	"value": 12.7
+}

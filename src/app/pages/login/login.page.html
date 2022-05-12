@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true">
+	<div class="panel-login">
+		<form [formGroup]="form" #loginForm="ngForm" (ngSubmit)="login()">
+			<div class="login-logo">
+				<img src="assets/images/deal.png" />
+			</div>
+			<p class="font-bold font-size-xlarge black ion-text-center">NEGOCIA AÍ!</p>
+			<div class="login-content ion-margin-top">
+				<div class="ion-padding-top">
+					<ion-item mode="md" fill="outline" [class.invalid]="form.controls.login.invalid && loginForm.submitted">
+						<ion-label position="floating">Login</ion-label>
+						<ion-input formControlName="login" maxlength="80"></ion-input>
+					</ion-item>
+					<div class="invalid-hint" *ngIf="form.controls.login.invalid && loginForm.submitted">
+						Login inválido
+					</div>
+					<ion-item mode="md" fill="outline" class="ion-margin-top" [class.invalid]="form.controls.password.invalid && loginForm.submitted">
+						<ion-label position="floating">Senha</ion-label>
+						<ion-input type="password" formControlName="password" maxlength="50"></ion-input>
+					</ion-item>
+					<div class="invalid-hint" *ngIf="form.controls.password.invalid && loginForm.submitted">
+						Insira sua senha
+					</div>
+				</div>
+				<ion-button expand="block" type="submit" color="primary" class="ion-margin-top custom">Entrar</ion-button>
+			</div>
+		</form>
+	</div>		
+</ion-content>

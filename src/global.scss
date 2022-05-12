@@ -1,0 +1,87 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "./assets/css/fonts.css";
+
+ion-button.custom {
+	--border-radius: 5px;
+	--box-shadow: none !important;
+	height: 45px;
+}
+ion-button::part(native) {
+	font-size: 16px;
+	text-transform: none;
+}
+ion-item {
+	--highlight-color-valid: var(--ion-color-primary);
+}
+ion-item.item-fill-outline {
+	--border-color: #bbb;
+	ion-input.md {
+		--padding-bottom: 0px !important;
+	}
+	ion-label {
+		color: #777 !important;
+	}
+}
+ion-item.item-fill-outline.ios {
+	--padding-start: 0px;
+}
+.invalid {
+	--border-color: #f44336 !important;
+	border-radius: 5px;
+
+	&::part(native) {
+		box-shadow: none !important;
+	}
+}
+.invalid-hint {
+	margin: 8px;
+	font-size: 0.9em;
+	color: #f44336;
+	div {
+		margin-bottom: 5px;
+	}
+}
+.header-badge {
+	margin-right: 10px;
+	ion-badge {
+		position: absolute;
+		top: -5px !important;
+		right: -10px !important;
+	}
+}
+.margin-top-10 {
+	margin-top: 10px !important;
+}
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal !important;
+}

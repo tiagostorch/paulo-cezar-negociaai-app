@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Minhas negociações</ion-title>
+	</ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title></ion-title>
+		<ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+			<ion-segment-button value="deal">
+				<ion-label>Negociações</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="bid">
+				<ion-label>Ofertas</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="getData($event)">
+        <ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<ng-container *ngIf="segment == 'deal'">
+		<p *ngIf="myDeals && myDeals.length == 0" class="font-normal gray ion-text-center">Nenhuma negociação encontrada</p>
+		<ion-list *ngIf="myDeals && myDeals.length > 0">
+			<deal-item *ngFor="let item of myDeals" [deal]="item" (click)="seeDealDetails(item)"></deal-item>
+		</ion-list>
+	</ng-container>
+	<ng-container *ngIf="segment == 'bid'">
+		<p *ngIf="myBids && myBids.length == 0" class="font-normal gray ion-text-center">Nenhuma oferta encontrada</p>
+		<ion-list *ngIf="myBids && myBids.length > 0">
+			<deal-bid-item *ngFor="let item of myBids" [dealBid]="item" (click)="seeBidDetails()"></deal-bid-item>
+		</ion-list>
+	</ng-container>
+	<ion-fab *ngIf="segment == 'deal'" vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button color="secondary" (click)="createDeal()">
+			<ion-icon name="megaphone-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

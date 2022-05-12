@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-buttons slot="end">
+			<ion-button fill="clear" (click)="showFilters()">
+				<ion-icon slot="icon-only" name="search-outline"></ion-icon>
+			</ion-button>
+			<ion-button class="header-badge" (click)="seeMessages()">
+				<ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+				<ion-badge slot="end" color="secondary">2</ion-badge>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="getDeals($event)">
+        <ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="top-content">
+		<div class="ion-text-center">
+			<ion-label class="font-bold font-size-xxlarge white">Olá, {{ username }}!</ion-label>
+			<p *ngIf="deals && deals.length > 0" class="font-normal font-size-xsmall white">Encontramos algumas ofertas para você!</p>
+		</div>
+	</div>
+	<div class="main-content">
+		<p *ngIf="deals && deals.length == 0" class="font-normal gray ion-text-center">Nenhuma oferta encontrada</p>
+		<ion-list *ngIf="deals && deals.length > 0">
+			<deal-item *ngFor="let item of deals" [deal]="item" (click)="seeDetails(item)"></deal-item>
+		</ion-list>
+	</div>
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button color="secondary" (click)="createDeal()">
+			<ion-icon name="megaphone-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

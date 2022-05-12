@@ -1,0 +1,11 @@
+<ion-item button lines="none" detail="false">
+	<ion-thumbnail slot="start">
+		<ion-img [src]="convertFileSrc(dealBid.photo?.src)"></ion-img>
+	</ion-thumbnail>
+	<ion-label class="ion-text-wrap ion-margin-vertical">
+		<p class="font-normal font-size-small dark line-clamp-3">{{ dealBid.description }}</p>
+		<p class="font-bold font-size-small dark">R$ {{ dealBid.value | number:'.2-2' }}</p>
+		<p class="font-normal font-size-medium dark margin-top-10">Oferta de R$ {{ dealBid.bidValue | number:'.2-2' }}</p>
+		<p class="font-normal font-size-small gray">{{ dealBid.bidStatus }}</p>
+	</ion-label>
+</ion-item>

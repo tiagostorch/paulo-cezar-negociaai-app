@@ -1,0 +1,19 @@
+ion-item {
+	border-bottom: 1px solid #f1f1f1;
+	ion-thumbnail {
+		width: 100px !important;
+		height: 100px !important;
+	}
+	.price-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 8px;
+		.icons-content {
+			ion-icon {
+				margin-left: 5px;
+				font-size: 20px;
+			}
+		}
+	}
+}

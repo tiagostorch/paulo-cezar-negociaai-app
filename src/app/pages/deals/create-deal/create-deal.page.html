@@ -1,0 +1,87 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Criar negociação</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<div class="ion-padding">
+		<form [formGroup]="form" #dealForm="ngForm" (ngSubmit)="save()">
+			<ion-item mode="md" fill="outline" [class.invalid]="form.controls.type.invalid && dealForm.submitted">
+				<ion-label position="floating">Tipo *</ion-label>
+				<ion-select interface="popover" placeholder="Selecione" formControlName="type" [(ngModel)]="deal.type">
+					<ion-select-option *ngFor="let item of dealTypes" [value]="item">{{ DealTypeDescription[item] }}</ion-select-option>
+				</ion-select>
+			</ion-item>
+			<div class="invalid-hint" *ngIf="form.controls.type.invalid && dealForm.submitted">
+				Selecione o tipo da negociação
+			</div>
+
+			<ion-item mode="md" fill="outline" [class.invalid]="form.controls.description.invalid && dealForm.submitted">
+				<ion-label position="floating">Descrição *</ion-label>
+				<ion-input formControlName="description" [(ngModel)]="deal.description" maxlength="200"></ion-input>
+			</ion-item>
+			<div class="invalid-hint" *ngIf="form.controls.description.invalid && dealForm.submitted">
+				Insira uma descrição para o produto
+			</div>
+
+			<ion-item mode="md" fill="outline" [class.invalid]="form.controls.value.invalid && dealForm.submitted">
+				<ion-label position="floating">Valor (R$) *</ion-label>
+				<ion-input type="tel" formControlName="value" [(ngModel)]="deal.value" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ','}"></ion-input>
+			</ion-item>
+			<div class="invalid-hint" *ngIf="form.controls.value.invalid && dealForm.submitted">
+				Insira um valor para o produto
+			</div>
+
+			<ion-item mode="md" fill="outline">
+				<ion-label position="floating">Aceito trocar por</ion-label>
+				<ion-input formControlName="tradeFor" [(ngModel)]="deal.tradeFor" maxlength="200"></ion-input>
+			</ion-item>
+
+			<ion-item mode="md" fill="outline" [class.invalid]="form.controls.urgencyType.invalid && dealForm.submitted">
+				<ion-label position="floating">Urgência *</ion-label>
+				<ion-select interface="popover" placeholder="Selecione" formControlName="urgencyType" [(ngModel)]="deal.urgency.type" (ionChange)="changeUrgencyType()">
+					<ion-select-option *ngFor="let item of urgencyTypes" [value]="item">{{ UrgencyTypeDescription[item] }}</ion-select-option>
+				</ion-select>
+			</ion-item>
+			<div class="invalid-hint" *ngIf="form.controls.urgencyType.invalid && dealForm.submitted">
+				Selecione qual é a urgência da negociação
+			</div>
+
+			<ion-item mode="md" *ngIf="deal.urgency.type == UrgencyType.DATE" fill="outline" [class.invalid]="form.controls.urgencyDate.invalid && dealForm.submitted">
+				<ion-label position="floating">Data limite *</ion-label>
+				<ion-input type="tel" formControlName="urgencyDate" [(ngModel)]="deal.urgency.limitDate" [brmasker]="{mask:'99/99/9999', len:10, userCaracters: false }"></ion-input>
+			</ion-item>
+			<div class="invalid-hint" *ngIf="form.controls.urgencyDate.invalid && dealForm.submitted">
+				Insira uma data limite
+			</div>
+
+			<p class="font-size-large font-bold ion-padding-top">Fotos</p>
+			<ion-grid class="ion-no-padding ion-padding-bottom">
+				<ion-row>
+					<ion-col size="4" *ngFor="let photo of deal.photos; let i = index" (click)="showPhotoActions(photo, i)">
+						<div class="col-content ion-align-items-center">
+							<div class="content-photo ion-activatable">
+								<ion-img src="{{convertFileSrc(photo.src)}}"></ion-img>
+								<ion-ripple-effect></ion-ripple-effect>
+							</div>
+						</div>
+					</ion-col>
+					<ion-col *ngIf="deal.photos.length < 6" size="4" (click)="actionsTakePhoto()">
+						<div class="col-content ion-align-items-center">
+							<div class="content-photo">
+								<div class="no-img ion-activatable">
+									<ion-icon name="add-circle-outline" color="gray"></ion-icon>
+									<ion-ripple-effect></ion-ripple-effect>
+								</div>
+							</div>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-button type="submit" expand="block" color="secondary" class="custom ion-margin-top">Salvar</ion-button>
+		</form>
+	</div>
+</ion-content>

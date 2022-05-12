@@ -1,0 +1,11 @@
+{
+	"/proxy/service/*": {
+		"target": "http://api.vibbraneo.com",
+		"changeOrigin": true,
+		"secure": false,
+		"logLevel": "debug",
+		"pathRewrite": {
+			"^/proxy/service": "http://api.vibbraneo.com/"
+		}
+	}
+}

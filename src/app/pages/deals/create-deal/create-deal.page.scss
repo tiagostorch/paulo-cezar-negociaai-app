@@ -1,0 +1,29 @@
+ion-item {
+	margin-top: 20px !important;
+}
+.col-content {
+	margin-top: 10px;
+	.content-photo {	
+		position: relative;
+		height: 95px;
+		width: 95px;
+		background: #eee;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	ion-img {
+		height: 95px;
+		width: 95px;
+		object-fit: cover;
+	}
+	.no-img {
+		height: 95px;
+		width: 95px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		ion-icon {
+			font-size: 40px;
+		}
+	}
+}
